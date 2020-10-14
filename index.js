@@ -5,14 +5,68 @@ console.log('its working');
 // ⚽️ M  V P ⚽️ //
 
 /* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
-
+console.table(obj, ['firstName', 'lastName']);
 (a) Home Team name for 2014 world cup final
 (b) Away Team name for 2014 world cup final
 (c) Home Team goals for 2014 world cup final
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
+// console.log(fifaData[800]['Home Team Name'])
+// console.table(fifaData, ['Year'] >= 2014)
+let a = (array, cb) => {
+    for (let i in array) {
+        if (array[i].Year >= 2014 && array[i].Stage === "Final") {
+            cb(`${array[i]['Home Team Name']} is the home Team for the 2014 world cup finals.`)
+        }
+    }
+}
+a(fifaData, function (val) {
+    console.log(val)
+})
 
+let b = (array, cb) => {
+    for (let i in array) {
+        if (array[i].Year >= 2014 && array[i].Stage === "Final") {
+            cb(`${array[i]["Away Team Name"]} is the away Team for the 2014 world cup finals.`)
+        }
+    }
+}
+b(fifaData, function (val) {
+    console.log(val)
+})
 
+let c = (array, cb) => {
+    for (let i in array) {
+        if (array[i].Year >= 2014 && array[i].Stage === "Final") {
+            cb(`The ${array[i]["Home Team Name"]} game goal was ${array[i]["Home Team Goals"]}.`)
+        }
+    }
+}
+c(fifaData, function (val) {
+    console.log(val)
+})
+
+let d = (array, cb) => {
+    for (let i in array) {
+        if (array[i].Year >= 2014 && array[i].Stage === "Final") {
+            cb(`The ${array[i]["Away Team Name"]} game goal was ${array[i]["Away Team Goals"]}.`)
+        }
+    }
+}
+d(fifaData, function (val) {
+    console.log(val)
+})
+
+let e = (array, cb) => {
+    for (let i in array) {
+        if (array[i].Year >= 2014 && array[i].Stage === "Final") {
+            cb(`The winner of the 2014 world cup finals is ${array[i]["Winner"]}.`)
+        }
+    }
+}
+e(fifaData, function (val) {
+    console.log(val)
+})
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
 function getFinals(/* code here */) {
@@ -31,7 +85,7 @@ function getYears(/* code here */) {
 
 getYears();
 
-/* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
+/* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */
 
 function getWinners(/* code here */) {
 
