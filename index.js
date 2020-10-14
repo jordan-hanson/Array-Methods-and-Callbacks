@@ -60,7 +60,7 @@ d(fifaData, function (val) {
 let e = (array, cb) => {
     for (let i in array) {
         if (array[i].Year >= 2014 && array[i].Stage === "Final") {
-            cb(`The winner of the 2014 world cup finals is ${array[i]["Winner"]}.`)
+            cb(`The winner of the 2014 world cup finals is ${array[i]["Win conditions"]}.`)
         }
     }
 }
@@ -69,11 +69,41 @@ e(fifaData, function (val) {
 })
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+// function getFinals(data) {
+//     const final = data.filter(function (data) {
+//         console.log(final)
+//     })
+//     /* code here */
 
-    /* code here */
+// };
+// let finalsData = "";
 
-};
+function getFinals(data) {
+    // console.log(`This is the data ${data.Stage} and index # ${ind} \n`)
+    return data.filter((item) => {
+        return item.Stage === "Final";
+    });
+}
+// fifaData.filter(getFinals);
+console.log(getFinals(fifaData));
+// console.log(finalsData)
+
+// fifaData.filter(function (soccerTeam, ind) {
+//     console.log(`This is the data ${soccerTeam.Stage === "Final"} and index # ${ind}`)
+
+// })
+
+// let getFinals = fifaData.filter(function (data,cb) {
+//     if (data["Stage"] === "Final") {
+//         cb()
+//         return
+//     }
+// })
+// getFinals()
+// console.log(getFinals)
+// console.log(getFinals[1])
+
+
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
