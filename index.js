@@ -137,6 +137,17 @@ f(winners, getYears, function (val) {
 
 // getAverageGoals();
 
+let getHomeAverageGoals = getFilteredYears.reduce(function (counter, team) {
+    let homeSum = counter += team["Home Team Goals"];
+    return homeSum
+}, 0)
+let getAwayAverageGoals = getFilteredYears.reduce(function (counter, team) {
+    let awaySum = counter += team["Away Team Goals"];
+    return awaySum
+}, 0)
+console.log(getHomeAverageGoals / 19)
+console.log(getAwayAverageGoals / 19)
+console.table("Average for Home Teams in the Finals to date : " + getHomeAverageGoals / 19 + " Average for Away Teams in the Finals to date : " + getAwayAverageGoals / 19 + ".")
 /// STRETCH 🥅 //
 
 /* Stretch 1: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
