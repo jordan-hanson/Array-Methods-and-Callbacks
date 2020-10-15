@@ -97,12 +97,12 @@ function getWinners(data) {
             return data["Away Team Name"]
         } else if (data["Home Team Goals"] === data["Away Team Goals"]) {
             console.log("It is a Tie")
-            return "It is a Tie No one Won!"
+            return "teams tied for"
         }
     })
 }
-console.log(getWinners(getFilteredYears))
-
+let winners = (getWinners(getFilteredYears))
+console.log(winners)
 /* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
 Parameters: 
@@ -110,21 +110,32 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(/* code here */) {
+let winnerSentence = winners.map(function (team) {
+    return team
+})
+console.log(winnerSentence)
 
-};
+let f = (team, years, cb) => {
+    console.log(years)
+    for (let i in team && years) {
+        cb(`In ${years[i]}, the ${team[i]} won the world cup \n`)
+    }
+}
 
-getWinnersByYear();
+f(winners, getYears, function (val) {
+    console.log(val)
+}
+)
 
-/* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
+// /* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(/* code here */) {
+// function getAverageGoals(/* code here */) {
 
-    /* code here */
+//         /* code here */
 
-};
+//     };
 
-getAverageGoals();
+// getAverageGoals();
 
 /// STRETCH 🥅 //
 
